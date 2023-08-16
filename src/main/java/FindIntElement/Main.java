@@ -1,4 +1,4 @@
-package FindElement;
+package FindIntElement;
 
 public class Main {
 
