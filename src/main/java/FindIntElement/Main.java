@@ -1,5 +1,7 @@
 package FindIntElement;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -7,8 +9,9 @@ public class Main {
 
         System.out.println("Минимальное число в массиве = " + findMinElementInArray(intArray));
         System.out.println("Максимальное число в массиве = " + findMaxElementInArray(intArray));
+        System.out.println("Предпоследнее число в массиве = " + findPenultimateElementInArray(intArray));
         System.out.println("Сумма всех чисел в массиве = " + findSumInArray(intArray));
-        System.out.println("Среднее значение суммы всех чисел в массиве = " + findAvgSumInArray(intArray) +" (округлено до целого числа в меньшую сторону)");
+        System.out.println("Среднее значение суммы всех чисел в массиве = " + findAvgSumInArray(intArray) + " (округлено до целого числа в меньшую сторону)");
 
     }
 
@@ -34,6 +37,21 @@ public class Main {
     }
 
 
+    // Алгоритм для нахождения предпоследнего значения в числовом массиве
+    private static int findPenultimateElementInArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i] > array[j]) {
+                    int value = array[i];
+                    array[i] = array[j];
+                    array[j] = value;
+                }
+            }
+        }
+        return array[array.length - 2];
+    }
+
+
     //Алгоритм для нахождения суммы всех элементов в массиве
     private static int findSumInArray(int[] array) {
         int sum = 0;
@@ -49,8 +67,8 @@ public class Main {
     private static int findAvgSumInArray(int[] array) {
         int avg = 0;
 
-        for (int i = 0; i <array.length ; i++) {
-            avg +=array[i];
+        for (int i = 0; i < array.length; i++) {
+            avg += array[i];
         }
         return avg / array.length;
     }
