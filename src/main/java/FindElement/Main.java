@@ -22,6 +22,7 @@ public class Main {
         return minValue;
     }
 
+
     // Алгоритм для нахождения максимального значения в числовом массиве
     private static int findMaxElementInArray(int[] array) {
         int maxValue = array[0];
@@ -42,6 +43,7 @@ public class Main {
         }
         return sum;
     }
+
 
     //Алгоритм для нахождения среднего значения от суммы всех элементов в массиве
     private static int findAvgSumInArray(int[] array) {
