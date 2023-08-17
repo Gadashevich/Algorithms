@@ -6,20 +6,29 @@ public class Main {
     public static void main(String[] args) {
         int[] intArray = new int[]{15, 8, 7, 202, 17, 32, 49, 14, 33, 11, 5, 107};
 
+        System.out.print("Сортировка пузырьком = ");
         printArray(bubbleSort(intArray));
+
+        System.out.println();
+
+        System.out.print("Сортировка расчесткой = ");
+        printArray(combSort(intArray));
+
 
     }
 
-    private static void printArray(int[] array){
-        for (int i = 0; i <array.length ; i++) {
-            if(i != array.length-1){
-                System.out.print(array[i]+ ", ");
+    // распечатывание массива
+    private static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            if (i != array.length - 1) {
+                System.out.print(array[i] + ", ");
             } else {
                 System.out.print(array[i]);
             }
         }
     }
 
+    // Сортировка пузырьком
     private static int[] bubbleSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = i + 1; j < array.length; j++) {
@@ -32,5 +41,33 @@ public class Main {
         }
         return array;
     }
+
+
+    // Сортировка расчесткой
+    private static int[] combSort(int[] array) {
+        int gap = array.length;
+
+        boolean isSorted = false;
+        while (!isSorted || gap != 1) {
+
+            if (gap > 1) {
+                gap = gap * 10 / 13;
+            } else {
+                gap = 1;
+            }
+
+            isSorted = true;
+            for (int i = gap; i < array.length; i++) {
+                if (array[i-gap] > array[i]) {
+                    int tmp = array[i];
+                    array[i] = array[i-gap];
+                    array[i-gap] = tmp;
+                    isSorted = false;
+                }
+            }
+        }
+        return array;
+    }
+
 
 }
