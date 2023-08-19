@@ -14,6 +14,7 @@ public class Main {
 
     }
 
+
     // Алгоритм для нахождения минимального значения в числовом массиве
     private static int findMinElementInArray(int[] array) {
         int minValue = array[0];
@@ -51,8 +52,6 @@ public class Main {
         }
         return secondMin;
     }
-
-
 
 
     // Алгоритм для нахождения предпоследнего значения в числовом массиве
